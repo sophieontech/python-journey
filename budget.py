@@ -14,7 +14,7 @@ class myBudget:
                 return "You have entered an invalid amount"
             else:
                 self.balance += depositAmount
-                print("You have deposited {} into your {} ".format(depositAmount, self.category))
+                print("You have deposited {} into your {} budget".format(depositAmount, self.category))
                 print("Your {} is now {}".format(self.category, self.balance))
         except:
             return ("Invalid Input")
@@ -22,28 +22,30 @@ class myBudget:
     def withdrawal(self,withdrawAmount):
         if withdrawAmount <= self.balance:
             self.balance -= withdrawAmount
-            print("You have just withdrawn {} from your {}".format(withdrawAmount,self.category))
+            print("You have just withdrawn {} from your {} budget".format(withdrawAmount,self.category))
             return self.categoryBalance()
         else:
             return "Your balance is insufficient"
 
     def transfer(self,transferAmount):
-        print("You have just transfered {} from your {}".format(transferAmount, self.category))
+        print("You have just transfered {} from your {} budget".format(transferAmount, self.category))
         return transferAmount
 
     def categoryBalance(self):
-        return "The current balance left in the {} is {}".format(self.category, self.balance)
+        return "The current balance left in the {} budget is {}".format(self.category, self.balance)
 
 
-clothing = myBudget('shopping', 10000)
+clothing = myBudget('clothing', 10000)
 food = myBudget('food',5000)
 entertainment = myBudget('entertainment',5000)
 
 print(clothing.deposit(50000))
 print(clothing.withdrawal(20000))
 print(entertainment.deposit(50000))
+print(clothing.transfer(5000))
 print(entertainment.withdrawal(5000))
 print(entertainment.categoryBalance())
+print(clothing.transfer(5000))
 
 
 print(type(myBudget))
